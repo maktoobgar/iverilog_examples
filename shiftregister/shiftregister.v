@@ -7,7 +7,7 @@ reg [7:0] tmp;
     always @(posedge clk)
     begin
         // Left
-        if (LR = 0) begin
+        if (!LR) begin
             tmp = tmp << 1;
             tmp[0] = SI;
         end

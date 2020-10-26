@@ -7,18 +7,17 @@ module ShiftLR_TB;
     wire SOL;
     wire SOR;
 
-    ShiftLR uut (.clk(clk), .SI(SI), LR(LR), .SOL(SOL), .SOR(SOR));
+    ShiftLR uut (.clk(clk), .SI(SI), .LR(LR), .SOL(SOL), .SOR(SOR));
 
         initial begin
-
-            $dumpfile("test.vcd");
-            $dumpvars(0, ShiftLR);
 
             clk = 1'b0;
             SI  = 1'b1;
             LR  = 1'b1;
 
-            forever #10 SI = ~SI;
+            #50
+
+            forever #20 SI = ~SI;
 
         end
 
@@ -27,7 +26,7 @@ module ShiftLR_TB;
         end
 
         always #10 clk = ~clk;
-        
+
 endmodule
 
 module ShiftLR (clk, SI, LR, SOL, SOR);
@@ -39,7 +38,7 @@ reg [7:0] tmp;
     always @(posedge clk)
     begin
         // Left
-        if (LR = 0) begin
+        if (!LR) begin
             tmp = tmp << 1;
             tmp[0] = SI;
         end
