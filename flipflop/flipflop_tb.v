@@ -1,5 +1,3 @@
-`timescale 1ns / 1ps
-
 module PEdge_DFlipFlop_TB;
 
     // Inputs
