@@ -1,3 +1,5 @@
+`include "1_bit_full_adder.v"
+
 module FullAdder_1Bit_TB;
 
     reg i_1;
@@ -10,7 +12,7 @@ module FullAdder_1Bit_TB;
     FullAdder_1Bit uut (.i_1(i_1), .i_2(i_2), .i_c(i_c), .o_s(o_s), .o_c(o_c));
 
         initial begin
-            
+
             $dumpfile("test.vcd");
             $dumpvars(0, FullAdder_1Bit_TB);
 
