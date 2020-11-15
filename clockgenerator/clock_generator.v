@@ -1,6 +1,6 @@
-module clock_generator (times, clk);
+module clock_generator (clk);
 
-    input [63: 0] times;
+    parameter n = 64;
     output reg clk = 0;
     integer i = 0;
 
@@ -8,12 +8,14 @@ module clock_generator (times, clk);
 
         clk = 0;
 
-        for(i = 0; i < times; i = i + 1)
+        for(i = 0; i < n; i = i + 1)
         begin
 
             #10
             
             clk = ~clk;
+
+            $monitor("At time %2t: n = %d, clk = %d", $time, n, clk);
 
         end
 
