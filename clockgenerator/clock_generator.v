@@ -12,7 +12,7 @@ module clock_generator (clk);
         begin
 
             #10
-            
+
             clk = ~clk;
 
             $monitor("At time %2t: n = %d, clk = %d", $time, n, clk);
