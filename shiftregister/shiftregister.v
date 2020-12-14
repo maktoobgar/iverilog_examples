@@ -8,12 +8,12 @@ reg [7:0] tmp;
     begin
         // Left
         if (!LR) begin
-            tmp = tmp << 1;
+            tmp <= tmp << 1;
             tmp[0] = SI;
         end
         // Right
         else begin
-            tmp = tmp >> 1;
+            tmp <= tmp >> 1;
             tmp[7] = SI;
         end
     end
